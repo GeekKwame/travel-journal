@@ -1,0 +1,177 @@
+:root {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #2B283A;
+    background-color: #F5F5F5;
+    line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: inherit;
+    background: radial-gradient(circle at top, #FFF8F5 0%, #F5F5F5 55%, #ECECEC 100%);
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(900px, calc(100% - 2.5rem));
+    margin: 0 auto 48px;
+}
+
+header {
+    background: #F55A5A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 60px;
+    box-shadow: 0 10px 25px rgba(245, 90, 90, 0.25);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+header > img {
+    width: 26px;
+    margin-right: 10px;
+}
+
+header > h1 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+main {
+    padding-top: 48px;
+}
+
+article.journal-entry {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    margin-bottom: 36px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 12px 35px rgba(43, 40, 58, 0.08);
+}
+
+article.journal-entry:last-of-type {
+    margin-bottom: 0;
+}
+
+article.journal-entry .main-image-container {
+    width: 145px;
+    height: 185px;
+    overflow: hidden;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+article.journal-entry .main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 220ms ease;
+}
+
+article.journal-entry:hover .main-image {
+    transform: scale(1.05);
+}
+
+.entry-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+}
+
+.entry-header .marker {
+    width: 10px;
+    height: auto;
+}
+
+.entry-header .country {
+    margin-right: 8px;
+}
+
+.google-link {
+    color: #918E9B;
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.google-link:visited {
+    color: #918E9B;
+}
+
+.google-link:hover,
+.google-link:focus-visible {
+    color: #F55A5A;
+}
+
+.info-container h2.entry-title {
+    margin-top: 12px;
+    margin-bottom: 17px;
+    font-size: clamp(1.35rem, 4vw, 1.7rem);
+}
+
+.info-container p.trip-dates {
+    font-weight: 600;
+    color: #2B283A;
+    margin-bottom: 8px;
+}
+
+.info-container p.entry-text {
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #4A4E74;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: min(620px, calc(100% - 2rem));
+    }
+
+    article.journal-entry {
+        flex-direction: column;
+    }
+
+    article.journal-entry .main-image-container {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        letter-spacing: 0.15em;
+    }
+
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        letter-spacing: 0.15em;
+    }
+
+    .google-link {
+        font-size: 0.7rem;
+    }
+}
