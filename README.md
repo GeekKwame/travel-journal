@@ -13,13 +13,13 @@ A responsive travel journal built with React + Vite. The site showcases memorabl
 ## Getting Started
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/GeekKwame/travel-journal.git
 cd Travel_Journal
 npm install
 npm run dev
 ```
 
-Visit the printed `http://localhost:<5173>` URL from the Vite dev server (ports may auto-increment if already in use).
+Visit the printed `http://localhost:5173` URL from the Vite dev server (ports may auto-increment if already in use).
 
 ## Available Scripts
 
