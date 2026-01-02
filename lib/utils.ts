@@ -63,6 +63,10 @@ export const calculateTrendPercentage = (
   }
 };
 
+export const formatDateWithTime = (dateString: string): string => {
+  return dayjs(dateString).format("MMMM DD, YYYY hh:mm A");
+};
+
 export const formatKey = (key: keyof TripFormData) => {
   return key
     .replace(/([A-Z])/g, " $1")
