@@ -126,6 +126,12 @@ declare interface DestinationProps {
   title: string;
 }
 
+declare namespace Models {
+  interface Document {
+    [key: string]: unknown;
+  }
+}
+
 type GetAllTripsResponse = {
   allTrips: Models.Document[];
   total: number;
