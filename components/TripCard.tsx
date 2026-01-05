@@ -1,4 +1,3 @@
-import React from 'react';
 import type { DashboardTrip } from '~/index';
 
 const TripCard = ({ trip }: { trip: DashboardTrip }) => {

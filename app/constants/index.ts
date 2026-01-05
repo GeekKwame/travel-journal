@@ -1,4 +1,5 @@
 import type { AxisModel } from "@syncfusion/ej2-react-charts";
+import type { TripFormData } from "~/index";
 
 export const sidebarItems = [
   {

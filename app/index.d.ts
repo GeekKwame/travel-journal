@@ -1,4 +1,4 @@
-declare interface BaseUser {
+export interface BaseUser {
   id: string;
   name: string;
   email: string;
@@ -6,25 +6,25 @@ declare interface BaseUser {
   imageUrl: string;
 }
 
-declare interface UserData extends BaseUser {
+export interface UserData extends BaseUser {
   itineraryCreated: number | string;
   status: "user" | "admin";
 }
 
-declare type User = BaseUser;
+export type User = BaseUser;
 
-declare interface Country {
+export interface Country {
   name: string;
   coordinates: [number, number];
   value: string;
   openStreetMap?: string;
 }
 
-declare interface DropdownItem {
+export interface DropdownItem {
   name: string;
 }
 
-declare interface SelectProps {
+export interface SelectProps {
   data: Country[] | DropdownItem[];
   onValueChange: (value: string) => void;
   id: string;
@@ -32,30 +32,30 @@ declare interface SelectProps {
   placeholder: string;
 }
 
-declare interface PillProps {
+export interface PillProps {
   text: string;
   bgColor?: string;
   textColor?: string;
 }
 
-declare interface Activity {
+export interface Activity {
   time: string;
   description: string;
 }
 
-declare interface DayPlan {
+export interface DayPlan {
   day: number;
   location: string;
   activities: Activity[];
 }
 
-declare interface Location {
+export interface Location {
   city: string;
   coordinates: [number, number];
   openStreetMap: string;
 }
 
-declare interface Trip {
+export interface Trip {
   id: string;
   name: string;
   description: string;
@@ -74,7 +74,7 @@ declare interface Trip {
   payment_link: string;
 }
 
-declare interface TripCardProps {
+export interface TripCardProps {
   id: string;
   name: string;
   location: string;
@@ -83,19 +83,19 @@ declare interface TripCardProps {
   price: string;
 }
 
-declare interface StatsCard {
+export interface StatsCard {
   headerTitle: string;
   total: number;
   lastMonthCount: number;
   currentMonthCount: number;
 }
 
-declare interface TrendResult {
+export interface TrendResult {
   trend: "increment" | "decrement" | "no change";
   percentage: number;
 }
 
-declare interface DashboardStats {
+export interface DashboardStats {
   totalUsers: number;
   usersJoined: {
     currentMonth: number;
@@ -113,11 +113,11 @@ declare interface DashboardStats {
   };
 }
 
-declare interface CreateTripResponse {
+export interface CreateTripResponse {
   id?: string;
 }
 
-declare interface DestinationProps {
+export interface DestinationProps {
   containerClass?: string;
   bigCard?: boolean;
   activityCount: number;
@@ -126,35 +126,35 @@ declare interface DestinationProps {
   title: string;
 }
 
-declare namespace Models {
+export namespace Models {
   interface Document {
     [key: string]: unknown;
   }
 }
 
-type GetAllTripsResponse = {
+export type GetAllTripsResponse = {
   allTrips: Models.Document[];
   total: number;
 };
 
-declare interface UsersItineraryCount {
+export interface UsersItineraryCount {
   imageUrl: string;
   name: string;
   count: number;
 }
 
-declare interface TripsInterest {
+export interface TripsInterest {
   imageUrl: string;
   name: string;
   interest: string;
 }
 
-declare interface InfoPillProps {
+export interface InfoPillProps {
   text: string;
   image: string;
 }
 
-declare interface TripFormData {
+export interface TripFormData {
   country: string;
   travelStyle: string;
   interest: string;
@@ -163,7 +163,7 @@ declare interface TripFormData {
   groupType: string;
 }
 
-declare interface DashboardTrip {
+export interface DashboardTrip {
   id: number;
   name: string;
   imageUrls: string[];
