@@ -1,6 +1,6 @@
 import type { Config } from "@react-router/dev/config";
 // @ts-ignore
-import { vercelPreset } from "@react-router/vercel-adapter";
+import { vercelPreset } from "@vercel/react-router";
 
 export default {
   // Config options...
