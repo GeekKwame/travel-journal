@@ -1,0 +1,10 @@
+
+> build
+> react-router build
+
+Error: Error loading C:/Users/eddie/OneDrive/Desktop/travel-dashboard/react-router.config.ts: Error: Cannot find package '@vercel/react-router/preset' imported from 'C:/Users/eddie/OneDrive/Desktop/travel-dashboard/react-router.config.ts'
+    at createConfigLoader (C:\Users\eddie\OneDrive\Desktop\travel-dashboard\node_modules\@react-router\dev\dist\cli\index.js:567:11)
+    at loadConfig (C:\Users\eddie\OneDrive\Desktop\travel-dashboard\node_modules\@react-router\dev\dist\cli\index.js:669:22)
+    at build (C:\Users\eddie\OneDrive\Desktop\travel-dashboard\node_modules\@react-router\dev\dist\cli\index.js:1903:22)
+    at build2 (C:\Users\eddie\OneDrive\Desktop\travel-dashboard\node_modules\@react-router\dev\dist\cli\index.js:2259:5)
+    at run2 (C:\Users\eddie\OneDrive\Desktop\travel-dashboard\node_modules\@react-router\dev\dist\cli\index.js:2564:7)
