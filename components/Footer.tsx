@@ -10,7 +10,7 @@ const Footer = () => {
                         <div className="p-2 glass rounded-xl bg-white/5">
                             <img src="/assets/icons/logo.svg" alt="logo" className="size-6 filter invert brightness-200" />
                         </div>
-                        <h1 className="text-xl font-bold text-white tracking-tight">Tourvisto</h1>
+                        <h1 className="text-xl font-bold text-white tracking-tight">The Tourist's Planner</h1>
                     </Link>
                     <p className="text-sm leading-relaxed opacity-70">
                         Designing the future of travel with AI-powered itineraries and premium experiences.
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
 
             <div className="wrapper mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-xs opacity-50">© 2026 Tourvisto. All rights reserved.</p>
+                <p className="text-xs opacity-50">© 2026 The Tourist's Planner. All rights reserved.</p>
                 <div className="flex gap-6">
                     <a href="#" className="opacity-50 hover:opacity-100 transition-opacity">
                         <span className="sr-only">Twitter</span>

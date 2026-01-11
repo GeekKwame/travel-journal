@@ -14,24 +14,24 @@ const MobileSidebar = () => {
         <Link to="/">
           <img src="/assets/icons/logo.svg" alt="logo" className="size-[30px]" />
 
-          <h1>Tourvisto</h1>
+          <h1>The Tourist's Planner</h1>
         </Link>
         <button onClick={toggleSidebar}>
-            <img 
-                src="/assets/icons/menu.svg" alt="menu" 
-                className="size-7" />
+          <img
+            src="/assets/icons/menu.svg" alt="menu"
+            className="size-7" />
         </button>
       </header>
 
-      <SidebarComponent 
-      ref={sidebar} 
-      width="270px" enableGestures={false}
-        created={()=> sidebar.current?.hide()}
+      <SidebarComponent
+        ref={sidebar}
+        width="270px" enableGestures={false}
+        created={() => sidebar.current?.hide()}
         closeOnDocumentClick={true}
         showBackdrop={true}
         type="Over"
 
-        >
+      >
         <NavItems handleClick={toggleSidebar} />
       </SidebarComponent>
     </div>

@@ -1,6 +1,6 @@
-# Tourvisto - AI-Powered Travel Planner
+# The Tourist's Planner - AI-Powered Travel Planner
 
-Tourvisto is a modern, full-stack travel application that combines the power of AI with a seamless booking experience. It serves both tourists, who can generate personalized itineraries and book trips, and administrators, who can curate and manage travel packages.
+The Tourist's Planner is a modern, full-stack travel application that combines the power of AI with a seamless booking experience. It serves both tourists, who can generate personalized itineraries and book trips, and administrators, who can curate and manage travel packages.
 
 ## 🌟 Features
 
@@ -36,8 +36,8 @@ Tourvisto is a modern, full-stack travel application that combines the power of 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/GeekKwame/tourvisto.git
-   cd tourvisto
+   git clone https://github.com/GeekKwame/travel-dashboard.git
+   cd travel-dashboard
    ```
 
 2. Install dependencies:

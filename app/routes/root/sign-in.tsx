@@ -33,7 +33,7 @@ export default function SignIn() {
                                 className="size-[30px]"
                             />
                         </Link>
-                        <h1 className="p-28-bold text-dark-100">Tourvisto</h1>
+                        <h1 className="p-28-bold text-dark-100">The Tourist's Planner</h1>
                     </header>
                     <article>
                         <h2 className="p-28-semibold text-dark-100 text-center">

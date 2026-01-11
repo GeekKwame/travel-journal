@@ -8,6 +8,7 @@ export default [
         route("admin", "routes/admin/dashboard.tsx", { id: "admin-index" }),
         route("dashboard", "routes/admin/dashboard.tsx", { id: "admin-dashboard" }),
         route("all-users", "routes/admin/all-users.tsx"),
+        route("trips", "routes/admin/trips.tsx"),
         route("create-trip", "routes/admin/create-trip.tsx", { id: "admin-create-trip" }),
         route("trip/:id", "routes/admin/trip-details.tsx"),
     ]),

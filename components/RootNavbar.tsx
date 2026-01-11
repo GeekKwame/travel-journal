@@ -34,7 +34,7 @@ const RootNavbar = ({ user }: RootNavbarProps) => {
                     <div className="p-2 glass rounded-xl group-hover:shadow-glow transition-all duration-300">
                         <img src="/assets/icons/logo.svg" alt="logo" className="size-6 group-hover:scale-110 transition-transform" />
                     </div>
-                    <h1 className="text-xl font-bold text-slate-900 tracking-tight">Tourvisto</h1>
+                    <h1 className="text-xl font-bold text-slate-900 tracking-tight">The Tourist's Planner</h1>
                 </Link>
 
                 <div className="hidden md:flex items-center gap-8">

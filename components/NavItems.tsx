@@ -17,7 +17,7 @@ const NavItems = ({ handleClick }: NavItemsProps) => {
     <section className="nav-items">
       <Link to="/" className="link-logo">
         <img src="/assets/icons/logo.svg" alt="logo" className="size-[30px]" />
-        <h1>Tourvisto</h1>
+        <h1>The Tourist's Planner</h1>
       </Link>
       <div className="container">
         <nav>
@@ -32,9 +32,8 @@ const NavItems = ({ handleClick }: NavItemsProps) => {
                   <img
                     src={icon}
                     alt={label}
-                    className={`group-hover:brightness-0 group-hover:invert size-6 ${
-                      isActive ? "brightness-0 invert" : "text-dark-200"
-                    }`}
+                    className={`group-hover:brightness-0 group-hover:invert size-6 ${isActive ? "brightness-0 invert" : "text-dark-200"
+                      }`}
                   />
                   {label}
                 </div>
@@ -46,17 +45,17 @@ const NavItems = ({ handleClick }: NavItemsProps) => {
 
         <footer className='nav-footer'>
           <img src={user?.imageUrl || '/assets/images/david.webp'} alt={user?.name || 'David'} />
-          
+
           <article>
             <h2>{user?.name}</h2>
             <p>{user?.email}</p>
           </article>
 
           <button
-          onClick = {() => {
-            console.log('logout')
-          }}
-          className="cursor-pointer"
+            onClick={() => {
+              console.log('logout')
+            }}
+            className="cursor-pointer"
           >
             <img
               src="/assets/icons/logout.svg"
@@ -64,7 +63,7 @@ const NavItems = ({ handleClick }: NavItemsProps) => {
               className="size-6 hover:brightness-0 hover:invert"
             />
           </button>
-          </footer>
+        </footer>
 
       </div>
     </section>

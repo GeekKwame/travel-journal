@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import { TripCard } from '../../../components';
 import { getUser } from '~/lib/auth';
 import { parseTripData } from '@/lib/utils';
+import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 
 export async function clientLoader() {
     try {

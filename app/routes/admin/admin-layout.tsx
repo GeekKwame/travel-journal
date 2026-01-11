@@ -31,8 +31,10 @@ const AdminLayout = () => {
           <NavItems />
         </SidebarComponent>
       </aside>
-      <main className="children p-4 w-full">
-        <Outlet />
+      <main className="children w-full">
+        <div className="wrapper py-6">
+          <Outlet />
+        </div>
       </main>
     </div>
   )
