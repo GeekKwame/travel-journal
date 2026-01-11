@@ -52,6 +52,10 @@ The Tourist's Planner is a modern, full-stack travel application that combines t
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    GEMINI_API_KEY=your_gemini_api_key
    UNSPLASH_ACCESS_KEY=your_unsplash_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   ADMIN_EMAIL=your_admin_email_for_access
+   VITE_BASE_URL=http://localhost:5173
+
    ```
 
 4. Run the development server:
