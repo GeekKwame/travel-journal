@@ -74,6 +74,21 @@ The Tourist's Planner is a modern, full-stack travel application that combines t
 - `app/components/`: Reusable UI components.
 - `app/lib/`: Utility functions and database clients.
 
+## 🌐 Deployment on Vercel
+
+Since this project uses [React Router v7](https://reactrouter.com/) with the Vercel adapter, follow these steps to deploy:
+
+1. **Push to GitHub**: Ensure all your changes are pushed to your repository.
+2. **Import to Vercel**:
+   - Go to [vercel.com](https://vercel.com) and click **"Add New" > "Project"**.
+   - Import your GitHub repository.
+3. **Configure Environment Variables**:
+   - In the **"Environment Variables"** section, add all the keys listed in the "Installation" section above.
+   - **Note**: For `VITE_BASE_URL`, use your Vercel deployment URL (e.g., `https://your-project.vercel.app`).
+4. **Deploy**: Click **"Deploy"**. Vercel will automatically detect the configuration and build the project.
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
