@@ -1,5 +1,4 @@
 import { Link, redirect } from "react-router";
-import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { loginWithGoogle, getUser } from "~/lib/auth";
 
 export async function clientLoader() {
@@ -44,19 +43,18 @@ export default function SignIn() {
 
                         </p>
                     </article>
-                    <ButtonComponent
+                    <button
                         type="button"
-                        iconCss="e-search-icon"
-                        className="button-class !h-11 !w-full"
-                        onClick={handleSignIn}>
-
+                        onClick={handleSignIn}
+                        className="w-full h-12 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl flex items-center justify-center gap-3 transition-all hover:shadow-glow"
+                    >
                         <img
                             src="/assets/icons/google.svg"
                             className="size-5"
                             alt="google"
                         />
-                        <span className="p-18 semi-bold text-white">Sign in with Google</span>
-                    </ButtonComponent>
+                        <span>Sign in with Google</span>
+                    </button>
                 </div>
             </section>
         </main>

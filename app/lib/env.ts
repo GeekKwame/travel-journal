@@ -17,6 +17,9 @@ const requiredEnvVars = {
 
     // Base URL
     VITE_BASE_URL: process.env.VITE_BASE_URL,
+
+    // Admin
+    ADMIN_EMAIL: process.env.ADMIN_EMAIL,
 } as const;
 
 export function validateEnvironment() {
@@ -52,4 +55,5 @@ export const env = {
     VITE_SUPABASE_URL: process.env.VITE_SUPABASE_URL!,
     VITE_SUPABASE_ANON_KEY: process.env.VITE_SUPABASE_ANON_KEY!,
     VITE_BASE_URL: process.env.VITE_BASE_URL!,
+    ADMIN_EMAIL: process.env.ADMIN_EMAIL!,
 } as const;

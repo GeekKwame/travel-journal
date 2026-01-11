@@ -11,10 +11,12 @@ export async function clientLoader() {
     if (!user) return redirect('/sign-in');
 
     // Check if user is admin
-    if (user.status === 'user') {
-      return redirect('/');
+    if (user.status !== 'admin') {
+      console.warn(`⛔ Non-admin user ${user.email} attempted to access admin panel`);
+      return redirect('/?error=admin_only');
     }
 
+    console.log(`✅ Admin access granted: ${user.email}`);
     return user;
   } catch (e) {
     console.error("Error in clientLoader", e);

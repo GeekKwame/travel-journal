@@ -7,6 +7,8 @@ interface RootNavbarProps {
     user?: {
         status?: string;
         image_url?: string;
+        name?: string;
+        email?: string;
     } | null;
 }
 
@@ -64,24 +66,33 @@ const RootNavbar = ({ user }: RootNavbarProps) => {
 
                     {user ? (
                         <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-3 p-1 pr-3 glass rounded-full">
+                            <div className="flex items-center gap-3 p-1.5 pr-4 glass rounded-full border border-brand-100/30 hover:border-brand-200/50 transition-all">
                                 <img
                                     src={user?.image_url || '/assets/images/david.webp'}
-                                    alt="user"
+                                    alt={user?.name || 'User'}
                                     referrerPolicy="no-referrer"
-                                    className="rounded-full size-8 object-cover border border-white/50"
+                                    className="rounded-full size-9 object-cover border-2 border-white shadow-sm"
                                 />
-                                <span className="text-xs font-semibold text-slate-700">Account</span>
+                                <div className="flex flex-col">
+                                    <span className="text-sm font-bold text-slate-800 leading-tight">
+                                        {user?.name || user?.email?.split('@')[0] || 'User'}
+                                    </span>
+                                    {user?.status === 'admin' && (
+                                        <span className="text-[10px] font-bold text-brand-600 uppercase tracking-wider">
+                                            Admin
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                             <button
                                 onClick={handleLogout}
-                                className="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors group"
-                                title="Logout"
+                                className="p-2.5 hover:bg-red-50 text-red-500 rounded-xl transition-all group border border-transparent hover:border-red-100"
+                                title="Sign out"
                             >
                                 <img
                                     src="/assets/icons/logout.svg"
                                     alt="logout"
-                                    className="size-5 rotate-180 group-hover:scale-110 transition-transform filter brightness-0 opacity-60"
+                                    className="size-5 rotate-180 group-hover:scale-110 transition-transform filter brightness-0 opacity-60 group-hover:opacity-100"
                                 />
                             </button>
                         </div>
