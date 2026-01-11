@@ -11,11 +11,16 @@ export async function clientLoader() {
     }
 }
 
+import Footer from "../../../components/Footer";
+
 const PageLayout = ({ loaderData }: { loaderData?: { user?: any } }) => {
     return (
-        <div className="bg-light-200">
+        <div className="min-h-screen flex flex-col bg-slate-50">
             <RootNavbar user={loaderData?.user} />
-            <Outlet />
+            <main className="flex-grow pt-20">
+                <Outlet />
+            </main>
+            <Footer />
         </div>
     )
 }

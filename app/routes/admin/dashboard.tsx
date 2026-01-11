@@ -35,63 +35,77 @@ const Dashboard = () => {
   const userRole = stats?.userRole || { total: 0, currentMonth: 0, lastMonth: 0 };
 
   return (
-    <main className="dashboard wrapper">
-      <Header
-        title={`Welcome Admin 👋`}
-        description="Track activity, trends and popular destinations in real time."
-      />
+    <main className="min-h-screen bg-slate-50/50 pb-20 pt-6">
+      <div className="wrapper space-y-12">
+        <Header
+          title={`Welcome Admin 👋`}
+          description="Track activity, trends and popular destinations in real time. Your command center for platform growth."
+        />
 
-      <section className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          <StatsCard
-            headerTitle="Total Users"
-            total={totalUsers}
-            currentMonthCount={usersJoined.currentMonth}
-            lastMonthCount={usersJoined.lastMonth}
-          />
+        {/* Stats Grid */}
+        <section className="animate-fade-in">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <StatsCard
+              headerTitle="Total Users"
+              total={totalUsers}
+              currentMonthCount={usersJoined.currentMonth}
+              lastMonthCount={usersJoined.lastMonth}
+            />
 
-          <StatsCard
-            headerTitle="Total Trips"
-            total={totalTrips}
-            currentMonthCount={tripsCreated.currentMonth}
-            lastMonthCount={tripsCreated.lastMonth}
-          />
+            <StatsCard
+              headerTitle="Total Trips"
+              total={totalTrips}
+              currentMonthCount={tripsCreated.currentMonth}
+              lastMonthCount={tripsCreated.lastMonth}
+            />
 
-          <StatsCard
-            headerTitle="Active Users"
-            total={userRole.total}
-            currentMonthCount={userRole.currentMonth}
-            lastMonthCount={userRole.lastMonth}
-          />
-        </div>
-      </section>
+            <StatsCard
+              headerTitle="Active Users"
+              total={userRole.total}
+              currentMonthCount={userRole.currentMonth}
+              lastMonthCount={userRole.lastMonth}
+            />
+          </div>
+        </section>
 
+        {/* Recent Activity Section */}
+        <section className="space-y-8">
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Recent Trip Generations</h2>
+              <p className="text-sm text-slate-500 font-medium">Latest itineraries created by your users.</p>
+            </div>
+            <button className="text-sm font-bold text-brand-600 hover:text-brand-700 transition-colors uppercase tracking-widest">
+              View All Activity →
+            </button>
+          </div>
 
-      <section className="flex flex-col gap-6">
-        <h1 className="text-xl font-semibold text-dark-100">Recent Trips</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-          {recentTrips.length > 0 ? (
-            recentTrips.map((trip: any) => {
-              const trip_details = parseTripData(trip.trip_details);
-              return (
-                <TripCard
-                  key={trip.id}
-                  id={trip.id}
-                  name={trip.name}
-                  imageUrl={trip.image_urls?.[0] || '/assets/images/sample.jpeg'}
-                  location={trip_details?.itinerary?.[0]?.location || 'Unknown Location'}
-                  tags={trip.tags || []}
-                  price={trip.estimated_price}
-                />
-              )
-            })
-          ) : (
-            <p className="text-gray-500">No trips created yet.</p>
-          )}
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {recentTrips.length > 0 ? (
+              recentTrips.map((trip: any) => {
+                const trip_details = parseTripData(trip.trip_details);
+                return (
+                  <TripCard
+                    key={trip.id}
+                    id={trip.id}
+                    name={trip.name}
+                    imageUrl={trip.image_urls?.[0] || '/assets/images/sample.jpeg'}
+                    location={trip_details?.itinerary?.[0]?.location || 'Unknown Location'}
+                    tags={trip.tags || []}
+                    price={trip.estimated_price}
+                  />
+                )
+              })
+            ) : (
+              <div className="col-span-full py-20 glass rounded-[40px] text-center border-dashed border-2 border-slate-200">
+                <p className="text-slate-400 font-bold">No trips created yet.</p>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
     </main>
   );
-};
+}
 
 export default Dashboard;

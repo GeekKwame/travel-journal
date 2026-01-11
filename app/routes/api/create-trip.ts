@@ -56,7 +56,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           ]
         }`;
 
-        const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-pro-latest' });
         const textResult = await model.generateContent([prompt]);
         const responseText = textResult.response.text();
 

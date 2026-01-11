@@ -30,22 +30,24 @@ const MyTrips = () => {
     const { trips } = useLoaderData<typeof clientLoader>();
 
     return (
-        <main className="min-h-screen bg-light-200 pt-32 pb-20">
-            <div className="wrapper flex flex-col gap-10">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <main className="min-h-screen bg-slate-50/50 pt-32 pb-32">
+            <div className="wrapper space-y-12">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <Header
                         title="My Travel Experiences"
-                        description="View and manage all your personally curated AI travel plans."
+                        description="View and manage all your personally curated AI travel plans in one place."
                     />
-                    <Link to="/create-trip" className="flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-all font-medium whitespace-nowrap w-fit">
-                        <img src="/assets/icons/magic-star.svg" alt="magic" className="size-5" />
-                        Plan New Trip
+                    <Link to="/create-trip">
+                        <ButtonComponent className="!bg-brand-600 !text-white !px-8 !py-4 !rounded-2xl !text-base !font-bold hover:!bg-brand-700 hover:!shadow-glow transition-all flex items-center gap-2">
+                            <img src="/assets/icons/magic-star.svg" alt="magic" className="size-5 filter invert" />
+                            Plan New Trip
+                        </ButtonComponent>
                     </Link>
                 </div>
 
-                <section>
+                <section className="animate-fade-in">
                     {trips.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {trips.map((trip: any) => (
                                 <TripCard
                                     key={trip.id}
@@ -59,11 +61,20 @@ const MyTrips = () => {
                             ))}
                         </div>
                     ) : (
-                        <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-dashed border-gray-200">
-                            <img src="/assets/icons/magic-star.svg" className="size-16 opacity-20 mb-4" alt="empty" />
-                            <p className="text-gray-500 text-lg font-medium">You haven't generated any AI trips yet.</p>
-                            <Link to="/create-trip" className="mt-4 text-primary-600 font-semibold hover:underline">
-                                Start your first plan with AI →
+                        <div className="flex flex-col items-center justify-center py-32 glass rounded-[40px] border-dashed border-2 border-slate-200 text-center space-y-6">
+                            <div className="size-20 bg-brand-50 rounded-full flex items-center justify-center animate-float">
+                                <img src="/assets/icons/magic-star.svg" className="size-10 opacity-40" alt="empty" />
+                            </div>
+                            <div className="space-y-2">
+                                <h3 className="text-2xl font-bold text-slate-900">No trips generated yet</h3>
+                                <p className="text-slate-500 max-w-sm mx-auto font-medium">
+                                    Your personal travel collection is empty. Let's create something extraordinary with AI.
+                                </p>
+                            </div>
+                            <Link to="/create-trip">
+                                <ButtonComponent className="!bg-brand-600/10 !text-brand-600 !px-8 !py-3 !rounded-xl !font-bold hover:!bg-brand-600 hover:!text-white transition-all">
+                                    Start Your First Plan
+                                </ButtonComponent>
                             </Link>
                         </div>
                     )}

@@ -170,122 +170,151 @@ const CreateTrip = () => {
     const isPublicView = !window.location.pathname.startsWith('/admin');
 
     return (
-        <main className={cn("flex flex-col gap-10 pb-20 wrapper", { "pt-32": isPublicView })}>
-            <Header title="Design Your AI Trip" description="Fill in your preferences and let our AI curate the perfect itinerary for you." />
+        <main className={cn("flex flex-col gap-12 pb-32 pt-24", { "bg-slate-50": isPublicView })}>
+            <div className="wrapper">
+                <Header
+                    title="Design Your AI Trip"
+                    description="Fill in your preferences and let our AI curate the perfect itinerary for you. Your dream vacation is just a few clicks away."
+                />
+            </div>
 
-            <section className="mt-2.5 wrapper-md">
-                <form className="trip-form" onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="country">
-                            Country
-                        </label>
-                        <ComboBoxComponent
-                            id="country"
-                            dataSource={countryData}
-                            fields={{ text: 'text', value: 'value' }}
-                            placeholder="Select a Country"
-                            className="combo-box"
-                            change={(e: { value: string | undefined }) => {
-                                if (e.value) {
-                                    handleChange('country', e.value)
-                                }
-                            }}
-                            allowFiltering
-                            filtering={(e: any) => {
-                                const query = e.text.toLowerCase();
-
-                                e.updateData(
-                                    countries.filter((country) => country.name.toLowerCase().includes(query)).map(((country) => ({
-                                        text: country.name,
-                                        value: country.value
-                                    })))
-                                )
-                            }}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="duration">Duration</label>
-                        <input
-                            id="duration"
-                            name="duration"
-                            type="number"
-                            placeholder="Enter a number of days"
-                            className="form-input placeholder:text-gray-100"
-                            onChange={(e) => handleChange('duration', Number(e.target.value))}
-                        />
-                    </div>
-
-                    {selectItems.map((key: keyof TripFormData) => (
-                        <div key={key}>
-                            <label htmlFor={key}>{formatKey(key)}</label>
-
+            <section className="wrapper max-w-4xl">
+                <form
+                    className="glass p-8 md:p-12 rounded-[40px] shadow-xl border border-white/50 space-y-10 animate-fade-in"
+                    onSubmit={handleSubmit}
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Country Selection */}
+                        <div className="space-y-3">
+                            <label htmlFor="country" className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">
+                                Destination Country
+                            </label>
                             <ComboBoxComponent
-                                id={key}
-                                dataSource={comboBoxItems[key].map((item: string) => ({
-                                    text: item,
-                                    value: item,
-                                }))}
+                                id="country"
+                                dataSource={countryData}
                                 fields={{ text: 'text', value: 'value' }}
-                                placeholder={`Select ${formatKey(key)}`}
+                                placeholder="Where are you going?"
+                                cssClass="!bg-white/50 !border-slate-200 !rounded-2xl !p-2 !text-slate-800"
                                 change={(e: { value: string | undefined }) => {
                                     if (e.value) {
-                                        handleChange(key, e.value)
+                                        handleChange('country', e.value)
                                     }
                                 }}
                                 allowFiltering
                                 filtering={(e: any) => {
                                     const query = e.text.toLowerCase();
-
                                     e.updateData(
-                                        comboBoxItems[key]
-                                            .filter((item: string) => item.toLowerCase().includes(query))
-                                            .map((item: string) => ({
-                                                text: item,
-                                                value: item,
-                                            })))
+                                        countries.filter((country) => country.name.toLowerCase().includes(query)).map(((country) => ({
+                                            text: country.name,
+                                            value: country.value
+                                        })))
+                                    )
                                 }}
-                                className="combo-box"
                             />
                         </div>
-                    ))}
 
-                    <div>
-                        <label htmlFor="location">
-                            Location on the world map
-                        </label>
-                        <MapsComponent>
-                            <LayersDirective>
-                                <LayerDirective
-                                    shapeData={world_map}
-                                    dataSource={mapData}
-                                    shapePropertyPath="name"
-                                    shapeDataPath="country"
-                                    shapeSettings={{ colorValuePath: "color", fill: "#E5E5E5" }}
+                        {/* Duration */}
+                        <div className="space-y-3">
+                            <label htmlFor="duration" className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">
+                                Duration (Days)
+                            </label>
+                            <input
+                                id="duration"
+                                name="duration"
+                                type="number"
+                                min="1"
+                                max="10"
+                                placeholder="How many days?"
+                                className="w-full bg-white/50 border border-slate-200 rounded-2xl p-4 text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500/20 transition-all placeholder:text-slate-400"
+                                onChange={(e) => handleChange('duration', Number(e.target.value))}
+                            />
+                        </div>
+
+                        {/* Other Selects */}
+                        {selectItems.map((key: keyof TripFormData) => (
+                            <div key={key} className="space-y-3">
+                                <label htmlFor={key} className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">
+                                    {formatKey(key)}
+                                </label>
+                                <ComboBoxComponent
+                                    id={key}
+                                    dataSource={comboBoxItems[key].map((item: string) => ({
+                                        text: item,
+                                        value: item,
+                                    }))}
+                                    fields={{ text: 'text', value: 'value' }}
+                                    placeholder={`Select ${formatKey(key)}`}
+                                    cssClass="!bg-white/50 !border-slate-200 !rounded-2xl !p-2 !text-slate-800"
+                                    change={(e: { value: string | undefined }) => {
+                                        if (e.value) {
+                                            handleChange(key, e.value)
+                                        }
+                                    }}
+                                    allowFiltering
+                                    filtering={(e: any) => {
+                                        const query = e.text.toLowerCase();
+                                        e.updateData(
+                                            comboBoxItems[key]
+                                                .filter((item: string) => item.toLowerCase().includes(query))
+                                                .map((item: string) => ({
+                                                    text: item,
+                                                    value: item,
+                                                })))
+                                    }}
                                 />
-                            </LayersDirective>
-                        </MapsComponent>
+                            </div>
+                        ))}
                     </div>
 
-                    <div className="bg-gray-200 h-px w-full" />
+                    {/* Map Section */}
+                    <div className="space-y-4">
+                        <label className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">
+                            Interactive World View
+                        </label>
+                        <div className="rounded-[32px] overflow-hidden border border-slate-200 shadow-inner bg-slate-50">
+                            <MapsComponent height="300px" background="transparent">
+                                <LayersDirective>
+                                    <LayerDirective
+                                        shapeData={world_map}
+                                        dataSource={mapData}
+                                        shapePropertyPath="name"
+                                        shapeDataPath="country"
+                                        shapeSettings={{ colorValuePath: "color", fill: "#E2E8F0" }}
+                                    />
+                                </LayersDirective>
+                            </MapsComponent>
+                        </div>
+                    </div>
+
+                    <div className="h-px bg-slate-200 w-full opacity-50" />
 
                     {error && (
-                        <div className="error">
-                            <p className="text-red-500">{error}</p>
+                        <div className="bg-red-50 border border-red-100 p-4 rounded-2xl flex items-center gap-3 animate-slide-in">
+                            <div className="p-1 bg-red-500 rounded-full text-white text-[10px]">✕</div>
+                            <p className="text-red-600 text-sm font-semibold">{error}</p>
                         </div>
                     )}
-                    <footer className="px-6 w-full">
-                        <ButtonComponent type="submit"
-                            className="bg-primary-600 text-white !h-12 !w-full rounded-md hover:bg-primary-700 transition-colors" disabled={loading}
+
+                    <div className="flex justify-end pt-4">
+                        <ButtonComponent
+                            type="submit"
+                            disabled={loading}
+                            className={cn(
+                                "!h-16 !px-12 !rounded-2xl !text-lg !font-bold transition-all duration-300 w-full md:!w-auto",
+                                loading
+                                    ? "!bg-slate-200 !text-slate-400"
+                                    : "!bg-brand-600 !text-white hover:!bg-brand-700 hover:!shadow-glow"
+                            )}
                         >
-                            <div className="flex items-center justify-center gap-2">
-                                <img src={`/assets/icons/${loading ? 'loader.svg' : 'magic-star.svg'}`} className={cn("size-5", { 'animate-spin': loading })} />
-                                <span className="font-semibold text-lg text-white">
-                                    {loading ? 'Generating...' : 'Generate Trip'}
-                                </span>
+                            <div className="flex items-center justify-center gap-3">
+                                <img
+                                    src={`/assets/icons/${loading ? 'loader.svg' : 'magic-star.svg'}`}
+                                    className={cn("size-6 filter invert", { 'animate-spin': loading })}
+                                />
+                                <span>{loading ? 'Curating your trip...' : 'Generate Itinerary'}</span>
                             </div>
                         </ButtonComponent>
-                    </footer>
+                    </div>
                 </form>
             </section>
         </main>

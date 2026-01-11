@@ -8,14 +8,14 @@ export default [
         route("admin", "routes/admin/dashboard.tsx", { id: "admin-index" }),
         route("dashboard", "routes/admin/dashboard.tsx", { id: "admin-dashboard" }),
         route("all-users", "routes/admin/all-users.tsx"),
-        route("create-trip", "routes/admin/create-trip.tsx"),
+        route("create-trip", "routes/admin/create-trip.tsx", { id: "admin-create-trip" }),
         route("trip/:id", "routes/admin/trip-details.tsx"),
     ]),
 
     layout("routes/root/page-layout.tsx", [
         index("routes/root/travel-page.tsx"),
         route("my-trips", "routes/root/my-trips.tsx"),
-        route("create-trip", "routes/admin/create-trip.tsx"), // Same component, different layout context
+        route("create-trip", "routes/admin/create-trip.tsx", { id: "root-create-trip" }),
         route("travel/:tripId/success", "routes/root/payment-success.tsx"),
         route("travel/:tripId", "routes/root/travel-detail.tsx"),
     ])

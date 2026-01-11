@@ -2,10 +2,10 @@ import { calculateTrendPercentage } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import type { StatsCard as StatsCardProps } from '~/index';
 
-const StatsCard = ({ 
-    headerTitle, 
-    total, 
-    currentMonthCount, 
+const StatsCard = ({
+    headerTitle,
+    total,
+    currentMonthCount,
     lastMonthCount }: StatsCardProps) => {
     const { trend, percentage } = calculateTrendPercentage(
         currentMonthCount,
@@ -13,34 +13,46 @@ const StatsCard = ({
     );
 
     const isDecrement = trend === "decrement";
-    
-  return (
-    <article className="stats-card">
-        <h3 className="text-base font-medium">
-            {headerTitle}
-        </h3>
 
-        <div className="content">
-            <h2 className="text-4xl font-semibold mb-1">{total}</h2>
-            <div className="flex items-center gap-2 mb-3">
-                <figure className="flex items-center gap-1">
+    return (
+        <article className="glass p-6 rounded-[32px] shadow-sm border border-white/50 hover-scale transition-all duration-300">
+            <div className="flex justify-between items-start mb-6">
+                <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider">
+                    {headerTitle}
+                </h3>
+                <div className={cn(
+                    "px-2 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1",
+                    isDecrement ? "bg-red-50 text-red-600" : "bg-emerald-50 text-emerald-600"
+                )}>
                     <img
-                        src={`/assets/icons/${isDecrement ? 
-                            'arrow-down-red.svg' : 'arrow-up-green.svg'}`}
-                        className="size-5"
+                        src={`/assets/icons/${isDecrement ? 'arrow-down-red.svg' : 'arrow-up-green.svg'}`}
+                        className="size-3"
                         alt="arrow"
                     />
-                    <figcaption className={cn('text-sm font-medium', isDecrement ? 'text-red-500' : 'text-green-500')}>
-                        {Math.round(percentage)}%
-                    </figcaption>
-                </figure>
-                <p className="text-sm font-medium text-gray-100 truncate">vs last month</p>
+                    {Math.round(percentage)}%
+                </div>
             </div>
 
-            <img src={`/assets/icons/${isDecrement ? 'decrement.svg' : 'increment.svg'}`} className="w-full h-20 object-contain" alt="trend graph"/>
-        </div>
-    </article>
-  )
+            <div className="space-y-4">
+                <div className="flex items-end gap-2">
+                    <h2 className="text-4xl font-bold text-slate-900 leading-none">{total}</h2>
+                    <span className="text-xs font-medium text-slate-400 pb-1">Total count</span>
+                </div>
+
+                <div className="relative h-16 w-full opacity-60">
+                    <img
+                        src={`/assets/icons/${isDecrement ? 'decrement.svg' : 'increment.svg'}`}
+                        className="w-full h-full object-contain filter saturate-150"
+                        alt="trend graph"
+                    />
+                </div>
+
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pt-2">
+                    Compared to last month
+                </p>
+            </div>
+        </article>
+    )
 }
 
 export default StatsCard
