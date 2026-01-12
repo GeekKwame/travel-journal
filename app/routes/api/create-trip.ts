@@ -5,6 +5,13 @@ import { supabase } from "~/lib/supabase";
 import { createProduct } from "~/lib/stripe";
 import type { Trip } from "~/index";
 
+// Vercel Serverless Function configuration
+// This increases the timeout to 60 seconds (max for Pro plan)
+// Hobby plan default is 10 seconds, which is often insufficient for AI API calls
+export const config = {
+    maxDuration: 60, // 60 seconds (Pro plan limit)
+};
+
 export const action = async ({ request }: ActionFunctionArgs) => {
     try {
         const body = await request.json();
