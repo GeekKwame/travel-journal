@@ -1,0 +1,346 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "nodejs_eyJtYXhEdXJhdGlvbiI6NjAsInJ1bnRpbWUiOiJub2RlanMifQ": {
+        "id": "nodejs_eyJtYXhEdXJhdGlvbiI6NjAsInJ1bnRpbWUiOiJub2RlanMifQ",
+        "file": "build/server/nodejs_eyJtYXhEdXJhdGlvbiI6NjAsInJ1bnRpbWUiOiJub2RlanMifQ/index.js",
+        "config": {
+          "maxDuration": 60,
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "root": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/root/sign-in": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/api/create-trip": "nodejs_eyJtYXhEdXJhdGlvbiI6NjAsInJ1bnRpbWUiOiJub2RlanMifQ",
+      "admin-index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "admin-dashboard": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/admin/all-users": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/admin/trips": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "admin-create-trip": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/admin/trip-details": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/root/travel-page": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/root/my-trips": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "root-create-trip": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/root/payment-success": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/root/travel-detail": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/root/sign-in": {
+        "id": "routes/root/sign-in",
+        "parentId": "root",
+        "file": "app/routes/root/sign-in.tsx",
+        "path": "sign-in",
+        "config": {}
+      },
+      "routes/api/create-trip": {
+        "id": "routes/api/create-trip",
+        "parentId": "root",
+        "file": "app/routes/api/create-trip.ts",
+        "path": "api/create-trip",
+        "config": {
+          "maxDuration": 60
+        }
+      },
+      "routes/admin/admin-layout": {
+        "id": "routes/admin/admin-layout",
+        "parentId": "root",
+        "file": "app/routes/admin/admin-layout.tsx",
+        "config": {}
+      },
+      "admin-index": {
+        "id": "admin-index",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/dashboard.tsx",
+        "path": "admin",
+        "config": {}
+      },
+      "admin-dashboard": {
+        "id": "admin-dashboard",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/dashboard.tsx",
+        "path": "dashboard",
+        "config": {}
+      },
+      "routes/admin/all-users": {
+        "id": "routes/admin/all-users",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/all-users.tsx",
+        "path": "all-users",
+        "config": {}
+      },
+      "routes/admin/trips": {
+        "id": "routes/admin/trips",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/trips.tsx",
+        "path": "trips",
+        "config": {}
+      },
+      "admin-create-trip": {
+        "id": "admin-create-trip",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/create-trip.tsx",
+        "path": "create-trip",
+        "config": {}
+      },
+      "routes/admin/trip-details": {
+        "id": "routes/admin/trip-details",
+        "parentId": "routes/admin/admin-layout",
+        "file": "app/routes/admin/trip-details.tsx",
+        "path": "trip/:id",
+        "config": {}
+      },
+      "routes/root/page-layout": {
+        "id": "routes/root/page-layout",
+        "parentId": "root",
+        "file": "app/routes/root/page-layout.tsx",
+        "config": {}
+      },
+      "routes/root/travel-page": {
+        "id": "routes/root/travel-page",
+        "parentId": "routes/root/page-layout",
+        "file": "app/routes/root/travel-page.tsx",
+        "index": true,
+        "config": {}
+      },
+      "routes/root/my-trips": {
+        "id": "routes/root/my-trips",
+        "parentId": "routes/root/page-layout",
+        "file": "app/routes/root/my-trips.tsx",
+        "path": "my-trips",
+        "config": {}
+      },
+      "root-create-trip": {
+        "id": "root-create-trip",
+        "parentId": "routes/root/page-layout",
+        "file": "app/routes/admin/create-trip.tsx",
+        "path": "create-trip",
+        "config": {}
+      },
+      "routes/root/payment-success": {
+        "id": "routes/root/payment-success",
+        "parentId": "routes/root/page-layout",
+        "file": "app/routes/root/payment-success.tsx",
+        "path": "travel/:tripId/success",
+        "config": {}
+      },
+      "routes/root/travel-detail": {
+        "id": "routes/root/travel-detail",
+        "parentId": "routes/root/page-layout",
+        "file": "app/routes/root/travel-detail.tsx",
+        "path": "travel/:tripId",
+        "config": {}
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "C:/Users/eddie/OneDrive/Desktop/travel-dashboard/app",
+    "basename": "/",
+    "buildDirectory": "C:/Users/eddie/OneDrive/Desktop/travel-dashboard/build",
+    "future": {
+      "unstable_optimizeDeps": false,
+      "unstable_subResourceIntegrity": false,
+      "v8_middleware": false,
+      "v8_splitRouteModules": false,
+      "v8_viteEnvironmentApi": false
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/root/sign-in": {
+        "id": "routes/root/sign-in",
+        "parentId": "root",
+        "file": "routes/root/sign-in.tsx",
+        "path": "sign-in"
+      },
+      "routes/api/create-trip": {
+        "id": "routes/api/create-trip",
+        "parentId": "root",
+        "file": "routes/api/create-trip.ts",
+        "path": "api/create-trip"
+      },
+      "routes/admin/admin-layout": {
+        "id": "routes/admin/admin-layout",
+        "parentId": "root",
+        "file": "routes/admin/admin-layout.tsx"
+      },
+      "admin-index": {
+        "id": "admin-index",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/dashboard.tsx",
+        "path": "admin"
+      },
+      "admin-dashboard": {
+        "id": "admin-dashboard",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/dashboard.tsx",
+        "path": "dashboard"
+      },
+      "routes/admin/all-users": {
+        "id": "routes/admin/all-users",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/all-users.tsx",
+        "path": "all-users"
+      },
+      "routes/admin/trips": {
+        "id": "routes/admin/trips",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/trips.tsx",
+        "path": "trips"
+      },
+      "admin-create-trip": {
+        "id": "admin-create-trip",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/create-trip.tsx",
+        "path": "create-trip"
+      },
+      "routes/admin/trip-details": {
+        "id": "routes/admin/trip-details",
+        "parentId": "routes/admin/admin-layout",
+        "file": "routes/admin/trip-details.tsx",
+        "path": "trip/:id"
+      },
+      "routes/root/page-layout": {
+        "id": "routes/root/page-layout",
+        "parentId": "root",
+        "file": "routes/root/page-layout.tsx"
+      },
+      "routes/root/travel-page": {
+        "id": "routes/root/travel-page",
+        "parentId": "routes/root/page-layout",
+        "file": "routes/root/travel-page.tsx",
+        "index": true
+      },
+      "routes/root/my-trips": {
+        "id": "routes/root/my-trips",
+        "parentId": "routes/root/page-layout",
+        "file": "routes/root/my-trips.tsx",
+        "path": "my-trips"
+      },
+      "root-create-trip": {
+        "id": "root-create-trip",
+        "parentId": "routes/root/page-layout",
+        "file": "routes/admin/create-trip.tsx",
+        "path": "create-trip"
+      },
+      "routes/root/payment-success": {
+        "id": "routes/root/payment-success",
+        "parentId": "routes/root/page-layout",
+        "file": "routes/root/payment-success.tsx",
+        "path": "travel/:tripId/success"
+      },
+      "routes/root/travel-detail": {
+        "id": "routes/root/travel-detail",
+        "parentId": "routes/root/page-layout",
+        "file": "routes/root/travel-detail.tsx",
+        "path": "travel/:tripId"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "file": "routes/root/sign-in.tsx",
+            "path": "sign-in"
+          },
+          {
+            "file": "routes/api/create-trip.ts",
+            "path": "api/create-trip"
+          },
+          {
+            "file": "routes/admin/admin-layout.tsx",
+            "children": [
+              {
+                "file": "routes/admin/dashboard.tsx",
+                "path": "admin",
+                "id": "admin-index"
+              },
+              {
+                "file": "routes/admin/dashboard.tsx",
+                "path": "dashboard",
+                "id": "admin-dashboard"
+              },
+              {
+                "file": "routes/admin/all-users.tsx",
+                "path": "all-users"
+              },
+              {
+                "file": "routes/admin/trips.tsx",
+                "path": "trips"
+              },
+              {
+                "file": "routes/admin/create-trip.tsx",
+                "path": "create-trip",
+                "id": "admin-create-trip"
+              },
+              {
+                "file": "routes/admin/trip-details.tsx",
+                "path": "trip/:id"
+              }
+            ]
+          },
+          {
+            "file": "routes/root/page-layout.tsx",
+            "children": [
+              {
+                "file": "routes/root/travel-page.tsx",
+                "index": true
+              },
+              {
+                "file": "routes/root/my-trips.tsx",
+                "path": "my-trips"
+              },
+              {
+                "file": "routes/admin/create-trip.tsx",
+                "path": "create-trip",
+                "id": "root-create-trip"
+              },
+              {
+                "file": "routes/root/payment-success.tsx",
+                "path": "travel/:tripId/success"
+              },
+              {
+                "file": "routes/root/travel-detail.tsx",
+                "path": "travel/:tripId"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
